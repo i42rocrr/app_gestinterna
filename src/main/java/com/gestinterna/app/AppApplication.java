@@ -1,4 +1,4 @@
-package com.gestclinic.app;
+package com.gestinterna.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
