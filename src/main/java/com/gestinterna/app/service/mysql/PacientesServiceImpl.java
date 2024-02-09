@@ -13,8 +13,5 @@ public class PacientesServiceImpl implements PacientesService {
     @Autowired
     private PacientesRepository pacientesRepository;
 
-    @Override
-    public Iterable<Pacientes> listarTodos() {
-        return pacientesRepository.findAll();
-    }
+    public List<Pacientes> listarTodos() { return pacientesRepository.findAll(); }
 }

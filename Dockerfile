@@ -93,7 +93,7 @@ RUN  /graalenv/bin/graalpy -m pip install wheel
 RUN  /graalenv/bin/graalpy -m pip install setuptools
 RUN  /graalenv/bin/graalpy -m pip install psutil
 RUN  /graalenv/bin/graalpy -m pip install Cython
-#RUN  /graalenv/bin/graalpy -m pip install numpy
+RUN  /graalenv/bin/graalpy -m pip install numpy
 #RUN  /graalenv/bin/graalpy -m pip install cython
 #RUN  /graalenv/bin/graalpy -m pip install python-dateutil
 #RUN  /graalenv/bin/graalpy -m pip install pytz

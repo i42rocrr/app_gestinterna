@@ -5,5 +5,5 @@ import com.gestinterna.app.model.mysql.Pacientes;
 import java.util.List;
 
 public interface PacientesService {
-    public Iterable<Pacientes> listarTodos();
+    public List<Pacientes> listarTodos();
 }
