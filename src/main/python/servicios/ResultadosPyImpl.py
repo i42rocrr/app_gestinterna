@@ -1,16 +1,20 @@
 import numpy as np
 
-#Recibo estos arrays
-# - todosPacienteFarmacos. Los elementos de los que se compone son:
-#      * Pacientes paciente,
-#      * List<String> nombreFarmacos
-# - todosLaboratorioFarmacos. Los elementos de los que se compone son:
-#      * Laboratorios laboratorio,
-#      * List<String> nombreFarmacos
 
-#Se va a utilizar el algoritmo de la Distancia Euclídea para hacer el listado "Laboratorio-Pacientes"
+print("Ejecución desde Python")
+print("###############################################################")
 
-#Primer paso: Se crean los grafos correspondientes. Para ello, se transformarán en lista los arays "todosPacienteFarmacos"
-# y "todosLaboratorioFarmacos"
+print("PACIENTES:")
+for paciente in todosPacientes:
+    print("Paciente: "+paciente.getNombre()+" ("+ str(paciente.getId()) +"):")
+    print("   Farmacos:")
+    for farmaco in paciente.getFarmacosPacientesList():
+        print(" -"+farmaco.getNombre()+" (" +str(farmaco.getId()) + ")")
 
-farmacos_laboratorio = np.array(list(map(lambda elemento: , laboratorio.getFarmacosLaboratoriosList())))
+
+print("LABORATORIOS:")
+for laboratorio in todosLaboratorios:
+    print("Laboratorio: "+laboratorio.getNombre()+" ("+ str(laboratorio.getId()) +"):")
+    print("   Farmacos:")
+    for farmaco in laboratorio.getFarmacosLaboratoriosList():
+        print(" -"+farmaco.getNombre()+" (" +str(farmaco.getId()) + ")")
