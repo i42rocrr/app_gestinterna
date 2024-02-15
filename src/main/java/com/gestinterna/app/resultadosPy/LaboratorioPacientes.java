@@ -1,11 +1,7 @@
 package com.gestinterna.app.resultadosPy;
 
-import com.gestinterna.app.model.mysql.Pacientes;
-import com.gestinterna.app.model.postgresql.Laboratorios;
+import java.util.List;
 
 public record LaboratorioPacientes(
-        Laboratorios laboratorio,
-        Iterable<Pacientes> pacientesList
-) {
-
-}
+        List<Long> pacientesList
+) {}

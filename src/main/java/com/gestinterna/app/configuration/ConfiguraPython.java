@@ -11,10 +11,11 @@ import java.io.IOException;
 @Configuration
 public class ConfiguraPython {
     @Bean
-    public Context CreaContext() {
+    public Context obtenerContext() {
         String venvExePath = new File("/graalenv/bin/graalpy")
                 .getPath()
                 .toString();
+
 
         return Context
                 .newBuilder("python")
@@ -28,15 +29,15 @@ public class ConfiguraPython {
     }
 
     @Bean
-    public Source CreaSource() {
+    public Source obtenerSource() {
         try {
             return Source
-                    .newBuilder(
-                    "python",
-                            new File("/src/main/python/servicios/ResultadosPyImpl.py")
-                            //new File("C:\\Users\\rafael.rojas\\Documents\\TFG\\GitHub\\app_gestinterna\\src\\main\\python\\servicios\\ResultadosPyImpl.py")
-                    )
-                    .build();
+                .newBuilder(
+                "python",
+                        new File("/src/main/python/servicios/ResultadosPyImpl.py")
+                        //new File("C:\\Users\\rafael.rojas\\Documents\\TFG\\GitHub\\app_gestinterna\\src\\main\\python\\servicios\\ResultadosPyImpl.py")
+                )
+                .build();
         } catch (IOException ioException) {
             System.out.println("Algo pasó en el Bean de generación del context de python......................");
             System.out.println("-Causa del error: " + ioException.getCause());
