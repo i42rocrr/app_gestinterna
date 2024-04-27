@@ -26,5 +26,31 @@
 
 
 
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Laboratorio</th>
+            <th scope="col">Pacientes</th>
+        </tr>
+        </thead>
+        <tbody th:each="iLabPac : ${lab_pac}">
+        <td th:text="${iLabPac.NombreLaboratorio}"></td>
+        <td>
+            <table>
+                <tr th:each="iPacientes : ${iLabPac.ListadoPacientes}">
+                    <td th:text="${iPacientes}"></td>
+                </tr>
+            </table>
+        </td>
+
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
 </body>
 </html>
