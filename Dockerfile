@@ -1,4 +1,4 @@
-FROM quay.io/p\ypa/manylinux_2_28_x86_64
+FROM quay.io/pypa/manylinux_2_28_x86_64
 
 ############# Configuración del SOP
 RUN dnf -y install libffi-devel bzip2-devel ed gcc gcc-c++ gcc-gfortran
