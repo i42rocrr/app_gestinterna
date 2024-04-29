@@ -1,4 +1,4 @@
-version: "4.25.2"
+version: "4.29.0"
 services:
   app_service:
     container_name: app_gestinterna_cont
@@ -6,7 +6,7 @@ services:
     build:
       context: .
     ports:
-      - '8083:8080'
+      - '8087:8080'
     networks:
       TFG_network:
         ipv4_address: 192.168.0.6
