@@ -50,6 +50,9 @@ public class OpcionesInternasController {
         // resultado de laboratorios_Pacientes que se va a pasar al "ListadoLaboratoriosPacientes.html"
         List<Laboratorio_Pacientes> laboratorioPacientes = new ArrayList<>();
 
+        //Se utiliza para que introducir pacientes duplicados en el listado de un mismo laboratorio
+        boolean pacienteEstaEnLista;
+
 
         //Se recorren todos los laboratorios y para cada uno, se busca si tiene pacientes relacionados
         for (int i=0;i<todosLaboratorios.size();i++) {
@@ -80,8 +83,30 @@ public class OpcionesInternasController {
                 //Se recorren los pacientes encontrados y se meten en una array "listaPacientes"
                 List<String> listaPacientes = new ArrayList<>();
                 for (int j = 0; j < pacientesEncontrados.size(); j++) {
-                    //Se añade el nombre del paciente en la lista "listaPacientes"
-                    listaPacientes.add(pacientesEncontrados.get(j).toString());
+                    //Se añade el nombre del paciente en la lista "listaPacientes" si éste no está ya añadido
+                    pacienteEstaEnLista=false;
+
+                    //Búsqueda del paciente "pacientesEncontrados.get(j)" en la lista de pacientes de este laboratorio
+                    // "listaPacientes", para no añadirlo otra vez al listado si ya estaba introducido de antes
+                    //porque el laboratorio "todosLaboratorios.get(i)" fabrique otros fármacos que
+                    // "pacientesEncontrados.get(j)" también consume
+                    if (!listaPacientes.isEmpty()) {
+                        int k = 0;
+                        while ((!pacienteEstaEnLista) && (k < listaPacientes.size())) {
+                            if (listaPacientes.get(k).toString().equals(pacientesEncontrados.get(j).toString())) {
+                                pacienteEstaEnLista = true;
+                            } else {
+                                k++;
+                            }
+                        }
+                    }
+
+                    //El paciente "pacientesEncontrados.get(j)" no está en el listado de pacientes "listaPacientes" del
+                    // laboratorio "todosLaboratorios.get(i)". Por tanto se añade al listado "listaPacientes"
+                    if (!pacienteEstaEnLista) {
+                        listaPacientes.add(pacientesEncontrados.get(j).toString());
+                    }
+
                 }
 
                 //Se trata de añadir el elemento Laboratorio-ListaPacientes en el registro
